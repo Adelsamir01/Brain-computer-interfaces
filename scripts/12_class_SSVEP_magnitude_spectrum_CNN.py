@@ -5,6 +5,7 @@ User-Dependent Training using Magnitude Spectrum Features (10-Fold Cross-validat
 Following implementation is an asynchronous SSVEP BCI 
 using Convolutional Neural Network classification for 1 second data length
 """
+import numpy.matlib
 import numpy as np
 import scipy.io as sio
 from sklearn.model_selection import KFold
