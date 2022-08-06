@@ -13,6 +13,7 @@ from sklearn.model_selection import KFold
 from keras.utils.np_utils import to_categorical
 from keras import optimizers
 from keras.losses import categorical_crossentropy
+import tensorflow as tf
 
 import ssvep_utils as su
 
@@ -95,7 +96,7 @@ for subject in range(0, 10):
         
         model = su.CNN_model(input_shape, CNN_PARAMS)
         
-        sgd = tensorflow.keras.optimizers.SGD(lr=CNN_PARAMS['learning_rate'], decay=CNN_PARAMS['lr_decay'], 
+        sgd = tf.keras.optimizers.SGD(lr=CNN_PARAMS['learning_rate'], decay=CNN_PARAMS['lr_decay'], 
                              momentum=CNN_PARAMS['momentum'], nesterov=False)
         model.compile(loss=categorical_crossentropy, optimizer=sgd, metrics=["accuracy"])
         history = model.fit(x_tr, y_tr, batch_size=CNN_PARAMS['batch_size'], 
